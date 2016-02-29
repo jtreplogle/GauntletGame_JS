@@ -1,0 +1,12 @@
+.DS_Store
+bower_components
+node_modules
+gulpfile.js
+bower.json
+package.json
+.jshintrc
+lib
+src
+jasmine-standalone-2.4.1.zip
+MIT.LICENSE
+SpecRunner.html
