@@ -1,58 +1,26 @@
-describe("Player", function() {
-  var player;
-  var song;
+describe("the specs for Player", function (){
 
-  beforeEach(function() {
-    player = new Player();
-    song = new Song();
-  });
 
-  it("should be able to play a Song", function() {
-    player.play(song);
-    expect(player.currentlyPlayingSong).toEqual(song);
+	it("should have a Gauntlet.Combatants.Human", function() {
+		expect(Gauntlet.Combatants.Human).toBeDefined();
+	})
 
-    //demonstrates use of custom matcher
-    expect(player).toBePlaying(song);
-  });
+	it("should have a Gauntlet.Combatants.Monster", function() {
+		expect(Gauntlet.Combatants.Monster).toBeDefined();
+	})
 
-  describe("when song has been paused", function() {
-    beforeEach(function() {
-      player.play(song);
-      player.pause();
-    });
+	it("should have a Gauntlet.Combatants.Player", function() {
+		expect(Gauntlet.Combatants.Player).toBeDefined();
+	})
 
-    it("should indicate that the song is currently paused", function() {
-      expect(player.isPlaying).toBeFalsy();
+	it("Gauntlet.Combatants.Player.prototype.generateClass", function() {
+		expect(Gauntlet.Combatants.Player.prototype.generateClass).toBeDefined();
+	})
 
-      // demonstrates use of 'not' with a custom matcher
-      expect(player).not.toBePlaying(song);
-    });
+	it("Gauntlet.Combatants.Player.prototype.setWeapon", function() {
+		expect(Gauntlet.Combatants.Player.prototype.setWeapon).toBeDefined();
+	})
 
-    it("should be possible to resume", function() {
-      player.resume();
-      expect(player.isPlaying).toBeTruthy();
-      expect(player.currentlyPlayingSong).toEqual(song);
-    });
-  });
 
-  // demonstrates use of spies to intercept and test method calls
-  it("tells the current song if the user has made it a favorite", function() {
-    spyOn(song, 'persistFavoriteStatus');
 
-    player.play(song);
-    player.makeFavorite();
-
-    expect(song.persistFavoriteStatus).toHaveBeenCalledWith(true);
-  });
-
-  //demonstrates use of expected exceptions
-  describe("#resume", function() {
-    it("should throw an exception if song is already playing", function() {
-      player.play(song);
-
-      expect(function() {
-        player.resume();
-      }).toThrowError("song is already playing");
-    });
-  });
-});
+	});
