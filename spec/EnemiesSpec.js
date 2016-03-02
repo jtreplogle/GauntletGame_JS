@@ -5,8 +5,8 @@ describe("the specs for enemies", function (){
 		expect(Gauntlet.Combatants.Monster).toBeDefined();
 	})
 
-	it("should have an Orc", function () {
-		expect(Gauntlet.Combatants.Orc).toBeDefined();
-	}
+	// it("should have an Orc", function() {
+	// 	expect(Gauntlet.Combatants.Orc).toBeDefined();
+	// })
 
 	});
