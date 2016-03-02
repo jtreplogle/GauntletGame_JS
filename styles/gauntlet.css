@@ -16,7 +16,13 @@ body {
   min-width: 500px;
 }
 
+.hidden {
+  display: none;
+}
 
+.show {
+  display: block;
+}
 
 /*
   Section styles

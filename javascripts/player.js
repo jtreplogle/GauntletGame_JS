@@ -59,6 +59,8 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   return this.class;
 };
 
+
+
 /*
   Define the base properties for a human in a 
   constructor function.

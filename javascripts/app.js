@@ -6,16 +6,15 @@ $(document).ready(function() {
     Test code to generate a human player and an orc player
    */
 
-   // var currentPlayerName = "";
+   var currentPlayerName = "";
 
   $("#class_button").on("click", function() {
-    var currentPlayerName = $("#player-name").val(); 
+    currentPlayerName = $("#player-name").val(); 
     // console.log("button clicked", currentPlayerName);
     
-    Gauntlet.Combatants.Player.playerName = currentPlayerName;
-    console.log(Gauntlet.Combatants.Player.playerName);
+    // Gauntlet.Combatants.Player.playerName = currentPlayerName;
+    // console.log(Gauntlet.Combatants.Player.playerName);
   })
-
 
   var currentClassName;
 
@@ -23,13 +22,114 @@ $(document).ready(function() {
     currentClassName = $(event.currentTarget).children(".btn__text").html()
   })
 
-
+var player1;
 
   $("#weapon_button").click(function() {
     //switch statement to decide which playerClass selected
     console.log(currentClassName);
+    console.log(currentPlayerName);
     
-  });
+    player1 = new Gauntlet.Combatants.Player();
+    player1.playerName = currentPlayerName;
+    console.log("player1", player1);
+
+    switch(currentClassName) {
+
+      case "Warrior":
+       player1.class = new Gauntlet.GuildHall.Warrior();
+          break;
+
+      case "Valkyrie":
+       player1.class = new Gauntlet.GuildHall.Valkyrie();
+          break;
+
+      case "Berserker":
+       player1.class = new Gauntlet.GuildHall.Berserker();
+          break;
+
+      case "Monk":
+       player1.class = new Gauntlet.GuildHall.Monk();
+          break;
+
+      case "Wizard":
+       player1.class = new Gauntlet.GuildHall.Wizard();
+          break;
+
+      case "Sorcerer":
+       player1.class = new Gauntlet.GuildHall.Sorcerer();
+          break;
+
+      case "Shaman":
+       player1.class = new Gauntlet.GuildHall.Shaman();
+          break;
+
+      case "Conjurer":
+       player1.class = new Gauntlet.GuildHall.Conjurer();
+          break;
+
+      case "Surprise Me":
+       // player1.generateClass();
+          break;    
+      default:
+        
+        // console.log(alert("Please select a Character"));
+        
+    }
+})
+
+    //Creating Weapons Options
+    //Fighter: Daggar, Broad Sword, War Axe
+    //Mage: Spell
+
+$("#weapon_button").click(function () {
+  console.log(currentClassName);
+  if (currentClassName === "Warrior" || currentClassName === "Valkyrie" || currentClassName === "Berserker" || currentClassName === "Monk") {
+    console.log("you picked figher");
+    $("#mage_spell").addClass("hidden");
+  }
+
+  if (currentClassName === "Shaman" || currentClassName === "Wizard" || currentClassName === "Conjurer" || currentClassName === "Sorcerer") {
+    console.log("you picked mege");
+    $("#fighter_weapon").addClass("hidden");
+  }
+
+  if (currentClassName === "Thief" || currentClassName === "Ninja" || 
+    currentClassName === "Assassin") {
+    console.log("you picked stealth");
+    $("#mage_spell").addClass("hidden");
+  }
+
+})
+
+var currentWeaponName;
+
+ $(".weapon__link").on("click", function(e) {
+    currentWeaponName = $(event.currentTarget).children(".btn__weapon__text").html()
+    console.log("currentWeaponName", currentWeaponName);
+  })
+
+
+
+  $("#fight_button").click(function() {
+    console.log("FIGHT!!!!");
+    console.log("currentWeaponName", currentWeaponName);
+    switch(currentWeaponName) {
+
+      case "Dagger":
+         player1.weapon = new Dagger();
+          console.log("player1", player1);
+          break;
+      case "Broad Sword":
+            player1.weapon = new BroadSword();
+            console.log("player1", player1);
+            break;
+      case "War Axe":
+            player1.weapon = new WarAxe();
+            console.log("player1", player1);
+            break;
+            default:
+    }
+  })
 
     // var player1 = new Gauntlet.Combatants.Human();
     // player1.class = Gauntlet.GuildHall.Warrior;
@@ -55,7 +155,7 @@ $(document).ready(function() {
   console.log("spell: ", spell.toString());
 
 
-  $(document).ready(function() {
+ 
     /*
       Show the initial view that accepts player name
      */
@@ -94,5 +194,5 @@ $(document).ready(function() {
     });
 
   });
-})
+
   
