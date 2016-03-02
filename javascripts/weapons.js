@@ -13,6 +13,7 @@ var Dagger = function() {
   this.damage = 4;
   this.hands = 1;
 };
+
 Dagger.prototype = new Weapon();
 
 var BroadSword = function() {
