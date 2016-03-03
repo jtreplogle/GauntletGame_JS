@@ -19,6 +19,7 @@ $(document).ready(function() {
   var currentClassName;
 
   $(".class__link").on("click", function(e) {
+    e.preventDefault();
     currentClassName = $(event.currentTarget).children(".btn__text").html()
   })
 
@@ -70,7 +71,6 @@ var player1;
       case "Surprise Me":
        // player1.generateClass();
           break;    
-      default:
         
         // console.log(alert("Please select a Character"));
         
@@ -89,7 +89,7 @@ $("#weapon_button").click(function () {
   }
 
   if (currentClassName === "Shaman" || currentClassName === "Wizard" || currentClassName === "Conjurer" || currentClassName === "Sorcerer") {
-    console.log("you picked mege");
+    console.log("you picked mage");
     $("#fighter_weapon").addClass("hidden");
   }
 
@@ -104,7 +104,8 @@ $("#weapon_button").click(function () {
 var currentWeaponName;
 
  $(".weapon__link").on("click", function(e) {
-    currentWeaponName = $(event.currentTarget).children(".btn__weapon__text").html()
+  e.preventDefault()
+  currentWeaponName = $(event.currentTarget).children(".btn__weapon__text").html()
     console.log("currentWeaponName", currentWeaponName);
   })
 
@@ -113,46 +114,145 @@ var currentWeaponName;
   $("#fight_button").click(function() {
     console.log("FIGHT!!!!");
     console.log("currentWeaponName", currentWeaponName);
+    fightScreen();
     switch(currentWeaponName) {
-
       case "Dagger":
          player1.weapon = new Dagger();
           console.log("player1", player1);
+          fightScreen();
           break;
       case "Broad Sword":
             player1.weapon = new BroadSword();
             console.log("player1", player1);
+            fightScreen();
             break;
-      case "War Axe":
+      case "War Axe"key: "value", 
             player1.weapon = new WarAxe();
             console.log("player1", player1);
+            fightScreen();
             break;
-            default:
+      case "Sphere":
+            player1.weapon = new Gauntlet.SpellBook.Sphere();
+            console.log("player1", player1);
+            fightScreen();
+            break;
+      case "Avada Kedavra":
+            player1.weapon = new Gauntlet.SpellBook.DeathSpell();
+            console.log("player1", player1);
+            fightScreen();
+            break;
+      case  "Attack Dog":
+            player1.weapon = new Gauntlet.SpellBook.Pet();
+            console.log("player1", player1);
+            fightScreen();
+            break;
+      case "Lightning": 
+            player1.weapon = new Gauntlet.SpellBook.RaidensPower();
+            console.log("player1", player1);
+            fightScreen();
+            break;
+      case "Noah's Flood": 
+            player1.weapon = new Gauntlet.SpellBook.NoahsArk();
+            console.log("player1", player1);
+            fightScreen();
+            break;
+      case "Gaia's Revenge": 
+            player1.weapon = new Gauntlet.SpellBook.Gaia();
+            console.log("player1", player1);
+            fightScreen();
+            break;            
     }
   })
 
+  function fightScreen() { 
+    console.log(player1.health);
+
+    var orc = new Gauntlet.Combatants.Orc();
+    orc.setWeapon(new BroadSword());
+    orc.generateClass();
+    orc.playerName = "MyNameOrc";
+    console.log(orc.toString());
+          
     // var player1 = new Gauntlet.Combatants.Human();
     // player1.class = Gauntlet.GuildHall.Warrior;
     // console.log("player1", player1);
+  };
+
+  $(".attack-button").click(function fight() { 
+      // (".characterImg").addClass("spell")
+  
+  
+  // $("#spell").removeClass("hide");
+
+  // var IntID = setInterval(moveCircle, 1);
+  // var leftOffset = 400;
+  // function moveCircle() {
+  //    $("#spell").offset({ left: leftOffset });
+  //     leftOffset = leftOffset + 5;
+  //     if (leftOffset > 1000) {
+  //       $(".battleground").effect( "highlight", "fast" );
+  //       $(".enemyStat").effect( "bounce", "fast" );
+  //       $("#spell").addClass("hide");
+  //       clearInterval(IntID);
+  //     }
+  // };    
+  // clearInterval(moveCircle);
+  
 
 
-  var warrior = new Gauntlet.Combatants.Human();
-  warrior.setWeapon(new WarAxe());
-  warrior.generateClass();  // This will be used for "Surprise me" option
-  console.log(warrior.toString());
+  var characterInter = setInterval(moveCharacter, 1);
+  var leftOffset = 0;
+  function moveCharacter() {
+     $(".characterImg").offset({ left: leftOffset });
+      leftOffset = leftOffset + 5;
+      if (leftOffset > 700) {
+      
+        $(".enemyStat").effect( "bounce", "fast" );
+        $(".battleground").effect( "shake", "fast" );
+       $(".characterImg").animate({left: "-=700"}, 1);
+        clearInterval(characterInter);
+      }
+  };        
 
-  console.log("warrior", warrior);
+// // var enemySetTimeOut = setTimeout(code, [delay]);
+//   var monsterInter = setInterval(moveMonster, 1);
+//   var rightOffset = 0;
+//   function moveMonster() {
+//      $(".enemyImg").offset({ left: rightOffset });
+//       rightOffset = rightOffset - 5;
+//       if (rightOffset < -700) {
+      
+//         $(".battleground").effect( "shake", "fast" );
+//         $(".playerStat").effect( "bounce", "fast" );
 
-  var orc = new Gauntlet.Combatants.Orc();
-  orc.setWeapon(new BroadSword());
-  orc.generateClass();
-  console.log(orc.toString());
+//        $(".enemyImg").animate({left: "+=700"}, 1);
+//         clearInterval(monsterInter);
+//       }
+//   };        
+//   clearInterval(moveMonster);
+
+
+  })
+
+
+
+  // var warrior = new Gauntlet.Combatants.Human();
+  // warrior.setWeapon(new WarAxe());
+  // warrior.generateClass();  // This will be used for "Surprise me" option
+  // console.log(warrior.toString());
+
+  // console.log("warrior", warrior);
+
+  // var orc = new Gauntlet.Combatants.Orc();
+  // orc.setWeapon(new BroadSword());
+  // orc.generateClass();
+  // console.log(orc.toString());
 
   /*
     Test code to generate a spell
    */
-  var spell = new Gauntlet.SpellBook.Sphere();
-  console.log("spell: ", spell.toString());
+  // var spell = new Gauntlet.SpellBook.Sphere();
+  // console.log("spell: ", spell.toString());
 
 
  
@@ -166,6 +266,7 @@ var currentWeaponName;
       move on to the next view.
      */
     $(".card__link").click(function(e) {
+      e.preventDefault();;
       var nextCard = $(this).attr("next");
       var moveAlong = false;
 
@@ -176,6 +277,9 @@ var currentWeaponName;
         case "card--weapon":
           moveAlong = ($("#player-name").val() !== "");
           break;
+        case "card--battleground":
+          moveAlong = ($("#player-name").val() !== "");
+          break;  
       }
 
       if (moveAlong) {

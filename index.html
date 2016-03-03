@@ -6,6 +6,7 @@
   <title>Gauntlet</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="styles/gauntlet.css">
 </head>
 
@@ -200,6 +201,30 @@
             <span class="btn__weapon__text">Avada Kedavera</span>
           </a>
         </div>
+        <div class="card__button">
+          <a class="weapon__link btn btn--big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn__weapon__text">Attack Dog</span>
+          </a>
+        </div>
+        <div class="card__button">
+          <a class="weapon__link btn btn--big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn__weapon__text">Lightning</span>
+          </a>
+        </div> 
+        <div class="card__button">
+          <a class="weapon__link btn btn--big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn__weapon__text">Noah's Flood</span>
+          </a>
+        </div> 
+        <div class="card__button">
+          <a class="weapon__link btn btn--big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn__weapon__text">Gaia's Revenge</span>
+          </a>
+        </div>
       </div>
 
       <div id="fight_button" class="card__button">
@@ -212,11 +237,67 @@
       </div>
     </section>
 
-    <section id="battleground" class="card card--battleground"></section>
+    <section id="battleground" class="card card--battleground">
+      <div class="battleground">
+       <div class="stats">
+
+        <div class="playerStat">
+          <div class="health">Health: 100</div>
+          <ul>
+            <li>Name: Jeremy</li>
+            <li>Species: Human</li>
+            <li>Class: Berserker</li>
+            <li>Weapon: War Axe</li>
+          </ul>
+        </div>
+
+     <button class="attack-button">ATTACK</button>
+
+        <div class="enemyStat">
+          <div class="health">Health: 100</div>
+          <ul>
+            <li>Name: Musaka</li>
+            <li>Species: Orc</li>
+            <li>Class: Monk</li>
+            <li>Weapon: Broad Sword</li>
+          </ul>
+        </div>
+      </div>  <!-- END OF STATS   -->
+    
+      <div class="character">
+         <!-- stealth -->
+          <div id="stealth" class="characterImg ">
+            <img src="http://1u88jj3r4db2x4txp44yqfj1.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/Valla.png">
+          </div>
+
+          <!-- mage -->
+          <div class="characterImg hide">
+           <img src="http://1u88jj3r4db2x4txp44yqfj1.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/Jaina_2.png">
+          </div>
+
+          <!-- fighter -->
+          <div class="characterImg hide">
+           <img src="http://1u88jj3r4db2x4txp44yqfj1.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/Sonya.png">
+          </div>
+
+
+          <div id="enemy" class="enemyImg" >
+            <img src="http://1u88jj3r4db2x4txp44yqfj1.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/Diablo.png">
+          </div>
+         
+          <div>
+            <img id="spell" class="spell hide" src="https://41.media.tumblr.com/e28b628712e69d66daa827e3a0c15b1b/tumblr_nf3xi9E65R1tfqol2o1_500.png">
+          </div>
+
+        </div>  <!-- END OF CHARACTER   -->
+       </div>  <!-- END OF BATTLE GROUND -->
+
+    </section>
 
   </article>
 
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="javascripts/weapons.js"></script>
   <script src="javascripts/classes.js"></script>
   <script src="javascripts/spells.js"></script>
