@@ -4,6 +4,15 @@ body {
   padding: 10px;
   font-size: 3em;
 }
+li {
+  list-style: none;
+}
+ul {
+  padding: 0;
+}
+.clear {
+  clear: both;
+}
 
 .field {
   margin: 20px 0 0 0;
@@ -15,21 +24,13 @@ body {
   text-align: center;
   min-width: 500px;
 }
-img {
-  width: 90%;
-}
-
-.background {
-  width: 90%;
-  margin: 0 auto;
-}
-.backgroundImg {
-  width: 100%;
-  margin: 0 auto;
-}
 
 .hidden {
   display: none;
+}
+
+.hide {
+  display: none
 }
 
 .show {
@@ -56,7 +57,7 @@ img {
   text-align: center;
 }
 
-
+.btn__text
 /*
   Button styles
  */
@@ -108,7 +109,7 @@ img {
   color: #fff;
   padding-right: 12px;
   padding-left: 12px;
-  margin-right: -10px;
+  margin-right: 10px;
   font-weight: 600;
   background-color: #333;
   opacity: .4;
@@ -122,39 +123,30 @@ img {
   border-radius: 0 5px 5px 0;
 }
 
-
-li {
-  list-style: none;
-}
-ul {
-  padding: 0;
-}
-
-
-.clear {
-  clear: both;
-}
-
 .attack-button {
   margin-top: 10%;
-  margin-left: 30%;
+  margin-left: 20%;
   font-size: 1.2em;
   border-radius: 10px;
   padding: 5px;
 }
 
+
+/*********************
+CHARACTER IMG SECTION 
+*********************/
+
 .characterImg img {
   width: 40%;
   float: left;
-  margin-top: 230px;
-  margin-left: -190px;
+  margin-top: 210px;
+  margin-left: -300px;
 }
-
 
 .enemyImg img {
   width: 45%;
   float: right;
-  margin-top: 160px;
+  margin-top: 80px;
   margin-right: 50px;
 }
 
@@ -165,16 +157,19 @@ ul {
 
 }
 
-.hide {
-  display: none
-}
-
 .battleground {
   background-image: url("https://s-media-cache-ak0.pinimg.com/736x/b1/da/c0/b1dac0470bdf2f7cc0c559599fba19f9.jpg");
   overflow: auto;
   background-size: cover;
-  height: 800px;
+  height: 780px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
+
+/*********************
+**** STAT SECTION ****
+*********************/
 
 .enemyStat {
   float: right;
@@ -183,7 +178,6 @@ ul {
   border-radius: 10px;
   padding: 10px;
 }
-
 
 .playerStat {
   float: left;

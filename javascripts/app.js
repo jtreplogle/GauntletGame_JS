@@ -126,7 +126,7 @@ var currentWeaponName;
             console.log("player1", player1);
             fightScreen();
             break;
-      case "War Axe"key: "value", 
+      case "War Axe": 
             player1.weapon = new WarAxe();
             console.log("player1", player1);
             fightScreen();
