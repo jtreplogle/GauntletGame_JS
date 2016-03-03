@@ -68,6 +68,18 @@ var player1;
        player1.class = new Gauntlet.GuildHall.Conjurer();
           break;
 
+      case "Thief":
+       player1.class = new Gauntlet.GuildHall.Thief();
+          break;
+
+      case "Ninja":
+       player1.class = new Gauntlet.GuildHall.Ninja();
+          break;
+
+      case "Assassin":
+       player1.class = new Gauntlet.GuildHall.Assassin();
+          break;
+
       case "Surprise Me":
        // player1.generateClass();
           break;    
@@ -126,7 +138,7 @@ var currentWeaponName;
             console.log("player1", player1);
             fightScreen();
             break;
-      case "War Axe"key: "value", 
+      case "War Axe":
             player1.weapon = new WarAxe();
             console.log("player1", player1);
             fightScreen();
@@ -165,13 +177,37 @@ var currentWeaponName;
   })
 
   function fightScreen() { 
-    console.log(player1.health);
-
+    console.log("My health",player1.health);
+    console.log("What is my name?", player1.playerName);
+    console.log("Player Class", player1.class);
+    
     var orc = new Gauntlet.Combatants.Orc();
     orc.setWeapon(new BroadSword());
     orc.generateClass();
     orc.playerName = "MyNameOrc";
     console.log(orc.toString());
+    var playerOutput = "";
+    var enemyOutput = "";
+    // $(".playerStat").html("")
+
+    playerOutput = `<p>${player1.playerName} the ${player1.class}</p>` +
+                   `<div class="health">Health: ${player1.health}</div>`;
+    $(".playerStat").html(playerOutput);
+
+    enemyOutput = `<p>${orc.monsterName}</p>` +
+                  `<div class="health">Health: ${orc.health}</div>`;
+    $(".enemyStat").html(enemyOutput);
+
+    
+
+
+    // <div class="health">Health: 100</div>
+    //       <ul>
+    //         <li>Name: Jeremy</li>
+    //         <li>Species: Human</li>
+    //         <li>Class: Berserker</li>
+    //         <li>Weapon: War Axe</li>
+    //       </ul>
           
     // var player1 = new Gauntlet.Combatants.Human();
     // player1.class = Gauntlet.GuildHall.Warrior;
