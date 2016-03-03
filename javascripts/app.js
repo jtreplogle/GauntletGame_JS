@@ -176,16 +176,16 @@ var currentWeaponName;
     }
   })
 
-  function fightScreen() { 
-    console.log("My health",player1.health);
-    console.log("What is my name?", player1.playerName);
-    console.log("Player Class", player1.class);
-    
-    var orc = new Gauntlet.Combatants.Orc();
-    orc.setWeapon(new BroadSword());
-    orc.generateClass();
-    orc.playerName = "MyNameOrc";
-    console.log(orc.toString());
+$(".attack-button").click(function fight() { 
+      // (".characterImg").addClass("spell")
+  
+  player1.health -= orc.weapon.damage;
+  orc.health -= player1.weapon.damage;
+  
+    console.log("Orc.weapon.damage", orc.weapon.damage);
+    console.log("Orc.weapon.damage", orc.health);
+    console.log("player1.weapon.damage", player1.weapon.damage);
+    console.log("player1.weapon.damage", player1.health);
     var playerOutput = "";
     var enemyOutput = "";
     // $(".playerStat").html("")
@@ -198,57 +198,52 @@ var currentWeaponName;
                   `<div class="health">Health: ${orc.health}</div>`;
     $(".enemyStat").html(enemyOutput);
 
+    if (player1.health <=0 && player1.health < orc.health) {
+      alert(`${player1.playerName}` + " LOOSES!");
+      $(".attack-button").addClass("hide");
+    }
+    if (orc.health <= 0 && orc.health < player1.health) {
+      alert(`${player1.playerName}` + " WINS!");
+      $(".attack-button").addClass("hide");
+    }
+
+  // if (currentWeaponName === "Sphere" || "Avada Kedavera" || "Attack Dog" || "Lightning" || "Noah's Flood" || "Gaia's Revenge") {
+
+    $("#spell").removeClass("hide");
+
+    var IntID = setInterval(moveCircle, 1);
+    var leftOffset = 400;
+    function moveCircle() {
+       $("#spell").offset({ left: leftOffset });
+        leftOffset = leftOffset + 5;
+        if (leftOffset > 1000) {
+          $(".battleground").effect( "highlight", "fast" );
+          $(".enemyStat").effect( "bounce", "fast" );
+          $("#spell").addClass("hide");
+          clearInterval(IntID);
+        }
+    };    
+    clearInterval(moveCircle);
     
+    // }
 
+    // else if (currentWeaponName === "Broad Sword" || "War Axe" || "Dagger") {
 
-    // <div class="health">Health: 100</div>
-    //       <ul>
-    //         <li>Name: Jeremy</li>
-    //         <li>Species: Human</li>
-    //         <li>Class: Berserker</li>
-    //         <li>Weapon: War Axe</li>
-    //       </ul>
-          
-    // var player1 = new Gauntlet.Combatants.Human();
-    // player1.class = Gauntlet.GuildHall.Warrior;
-    // console.log("player1", player1);
-  };
+    var characterInter = setInterval(moveCharacter, 1);
+    var leftOffset = 0;
+    function moveCharacter() {
+       $(".characterImg").offset({ left: leftOffset });
+        leftOffset = leftOffset + 5;
+        if (leftOffset > 700) {
+        
+          $(".enemyStat").effect( "bounce", "fast" );
+          $(".battleground").effect( "shake", "fast" );
+         $(".characterImg").animate({left: "-=700"}, 1);
+          clearInterval(characterInter);
+        }
+    };        
+  // }
 
-  $(".attack-button").click(function fight() { 
-      // (".characterImg").addClass("spell")
-  
-  
-  // $("#spell").removeClass("hide");
-
-  // var IntID = setInterval(moveCircle, 1);
-  // var leftOffset = 400;
-  // function moveCircle() {
-  //    $("#spell").offset({ left: leftOffset });
-  //     leftOffset = leftOffset + 5;
-  //     if (leftOffset > 1000) {
-  //       $(".battleground").effect( "highlight", "fast" );
-  //       $(".enemyStat").effect( "bounce", "fast" );
-  //       $("#spell").addClass("hide");
-  //       clearInterval(IntID);
-  //     }
-  // };    
-  // clearInterval(moveCircle);
-  
-
-
-  var characterInter = setInterval(moveCharacter, 1);
-  var leftOffset = 0;
-  function moveCharacter() {
-     $(".characterImg").offset({ left: leftOffset });
-      leftOffset = leftOffset + 5;
-      if (leftOffset > 700) {
-      
-        $(".enemyStat").effect( "bounce", "fast" );
-        $(".battleground").effect( "shake", "fast" );
-       $(".characterImg").animate({left: "-=700"}, 1);
-        clearInterval(characterInter);
-      }
-  };        
 
 // // var enemySetTimeOut = setTimeout(code, [delay]);
 //   var monsterInter = setInterval(moveMonster, 1);
@@ -269,6 +264,46 @@ var currentWeaponName;
 
 
   })
+
+
+
+
+
+var orc;
+  function fightScreen() { 
+    console.log("My health",player1.health);
+    console.log("What is my name?", player1.playerName);
+    console.log("Player Class", player1.class);
+    
+    orc = new Gauntlet.Combatants.Orc();
+    orc.setWeapon(new BroadSword());
+    orc.generateClass();
+    orc.playerName = "MyNameOrc";
+    console.log(orc.toString());
+    var playerOutput = "";
+    var enemyOutput = "";
+    // $(".playerStat").html("")
+
+    playerOutput = `<p>${player1.playerName} the ${player1.class}</p>` +
+                   `<div class="health">Health: ${player1.health}</div>`;
+    $(".playerStat").html(playerOutput);
+
+    enemyOutput = `<p>${orc.monsterName}</p>` +
+                  `<div class="health">Health: ${orc.health}</div>`;
+    $(".enemyStat").html(enemyOutput);
+
+};
+// Plant.prototype.decreaseHeight = function(shrinkage){
+//   // 7 -- decreaseHeight should decrease the value of the height property by the amount passed in as an argument.
+//   this.height -= shrinkage;
+// };
+
+var player1Health = function() {
+  console.log("player1.health", player1.health);
+  return player1.health; 
+}
+
+
 
 
 
