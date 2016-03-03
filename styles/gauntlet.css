@@ -15,6 +15,18 @@ body {
   text-align: center;
   min-width: 500px;
 }
+img {
+  width: 90%;
+}
+
+.background {
+  width: 90%;
+  margin: 0 auto;
+}
+.backgroundImg {
+  width: 100%;
+  margin: 0 auto;
+}
 
 .hidden {
   display: none;
@@ -109,3 +121,76 @@ body {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
 }
+
+
+li {
+  list-style: none;
+}
+ul {
+  padding: 0;
+}
+
+
+.clear {
+  clear: both;
+}
+
+.attack-button {
+  margin-top: 10%;
+  margin-left: 30%;
+  font-size: 1.2em;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.characterImg img {
+  width: 40%;
+  float: left;
+  margin-top: 230px;
+  margin-left: -190px;
+}
+
+
+.enemyImg img {
+  width: 45%;
+  float: right;
+  margin-top: 160px;
+  margin-right: 50px;
+}
+
+.spell {
+  width: 5%;
+  float: left;
+  margin-top: 350px;
+
+}
+
+.hide {
+  display: none
+}
+
+.battleground {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/736x/b1/da/c0/b1dac0470bdf2f7cc0c559599fba19f9.jpg");
+  overflow: auto;
+  background-size: cover;
+  height: 800px;
+}
+
+.enemyStat {
+  float: right;
+  margin: 2%;
+  background-color: rgba(200,200,200,.8);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.playerStat {
+  float: left;
+  margin: 2%;
+  background-color: rgba(200,200,200,.8);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
